@@ -6,13 +6,28 @@
     <script src="./vue.js"></script>
 </head>
 <body>
-    <div id="root">{{msg}}</div>
+    <!-- 挂载点、模版、实例 -->
+    <div id="root">
+        <!-- <div v-on:click="handleClick">
+            <h1>{{msg}}</h1>
+        </div> -->
+        <div @click="handleClick">
+                <h1>{{msg}}</h1>
+            </div>
+    </div>
 
     <script>
         new Vue({
             el: "#root",
+            // template:'<h1>hello {{msg}}</h1>',
             data: {
-                msg:"hello Vue"
+                msg:" hello, click me !"
+            },
+            methods: {
+                handleClick: function() {
+                    alert("oh shit!")
+                    this.msg = "Why did you click on me?"
+                }
             }
         })
     </script>
