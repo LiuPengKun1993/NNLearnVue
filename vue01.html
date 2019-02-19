@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>属性绑定和双向数据绑定</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- 以下两种表达相同 -->
+        <!-- v-bind 实现属性绑定，单独用：也可以 -->
+        <!-- <div v-bind:title="title">hello vue</div> -->
+        <div :title="title">hello vue</div>
+        <!-- v-model 实现双向绑定 -->
+        <input v-model:content="content"/>
+        <div>{{content}}</div>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: "#root",
+            data: {
+                title:"this is hello vue",
+                content:"this is content"
+            }
+        })
+    </script>
+</body>
+</html>
