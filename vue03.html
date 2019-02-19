@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-if, v-show, v-for 指令</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="root">
+            <!-- v-if 当对应的指令为false时，会直接把标签删除 -->
+        <!-- <div v-if="show">hello vue</div> -->
+
+        <!-- v-show 当对应的指令为false时，会把标签隐藏而不是清除 性能更好 -->
+        <div v-show="show">hello vue</div>
+
+        <button @click="handleClick">toggle</button>
+
+        <!-- v-for 指令循环显示一组数据 -->
+        <ul>
+            <li v-for="(item, index) of list" :key="index">{{item}}</li>
+        </ul>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#root",
+            data: {
+                show: true,
+                list: [1, 2, 3]
+            },
+            methods: {
+                handleClick: function() {
+                    this.show = !this.show
+                }
+            }
+        })
+    </script>
+</body>
+</html>
